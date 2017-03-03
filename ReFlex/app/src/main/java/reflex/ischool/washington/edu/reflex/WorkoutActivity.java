@@ -11,7 +11,7 @@ public class WorkoutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
 
-        WorkoutFragment workoutFrag = new WorkoutFragment();
+        WorkoutListFragment workoutFrag = new WorkoutListFragment();
         FragmentTransaction tx = getFragmentManager().beginTransaction();
         tx.replace(R.id.fragment_placeholder, workoutFrag);
         tx.commit();

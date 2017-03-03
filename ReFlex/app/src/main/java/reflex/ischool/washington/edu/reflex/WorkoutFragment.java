@@ -38,7 +38,7 @@ public class WorkoutFragment extends Fragment {
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.workoutRecycleView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         exerciseList = new ArrayList<Exercise>();
 
 
@@ -60,7 +60,7 @@ public class WorkoutFragment extends Fragment {
             exerciseList.add(temp);
         }
 
-        adapter = new workoutAdapter(exerciseList, this.getContext());
+        adapter = new workoutAdapter(exerciseList, this.getActivity());
         recyclerView.setAdapter(adapter);
 
 
