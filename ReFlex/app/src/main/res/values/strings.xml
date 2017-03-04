@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ReFlex</string>
+
+    <string name="hello">Hello world!</string>
+
+    <string name="recent">Recents</string>
+    <string name="start">Start</string>
+    <string name="schedule">Schedule</string>
 </resources>
