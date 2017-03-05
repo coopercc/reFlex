@@ -109,7 +109,7 @@ public class Schedule extends Activity {
         Notification.Builder builder = new Notification.Builder(this);
         builder.setContentTitle("Scheduled Notification");
         builder.setContentText(content);
-        builder.setSmallIcon(R.drawable.reflex_icon);
+       // builder.setSmallIcon(R.drawable.reflex_icon);
         return builder.build();
     }
 }
