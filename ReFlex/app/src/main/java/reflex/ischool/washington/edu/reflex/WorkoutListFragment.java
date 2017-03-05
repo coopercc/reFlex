@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,14 +32,16 @@ public class WorkoutListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        final View rootView = inflater.inflate(R.layout.fragment_workout_list, container, false);
 
         List<String> workoutList = new ArrayList<String>();
         workoutList.add("Workout 1");
         workoutList.add("Workout 2");
         workoutList.add("Workout 3");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, workoutList);
-        final ListView listView = (ListView) getView().findViewById(R.id.workoutList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_list_item_1, workoutList);
+        final ListView listView = (ListView) rootView.findViewById(R.id.workoutList);
         listView.setAdapter(adapter);
+        Log.i("WorkoutListFragment", "Setting up listview or something, Fuck you");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -55,7 +58,7 @@ public class WorkoutListFragment extends Fragment {
             }
         });
 
-        return inflater.inflate(R.layout.fragment_workout_list, container, false);
+        return rootView;
     }
 
 }

@@ -1,6 +1,7 @@
 package reflex.ischool.washington.edu.reflex;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -33,6 +34,10 @@ public class HomeActivity extends AppCompatActivity {
                             case R.id.start:
                                 Toast.makeText(HomeActivity.this, "Start", Toast.LENGTH_SHORT).show();
                                 // start new Activity/fragment
+                                WorkoutListFragment listFrag = new WorkoutListFragment();
+                                FragmentTransaction tx = getFragmentManager().beginTransaction();
+                                tx.replace(R.id.fragment_placeholder, listFrag);
+                                tx.commit();
                                 break;
                             case R.id.schedule:
                                 Toast.makeText(HomeActivity.this, "Schedule", Toast.LENGTH_SHORT).show();
