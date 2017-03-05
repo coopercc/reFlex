@@ -24,6 +24,10 @@
         "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable/reflex_icon.png",
+        "source": "/Users/coopercain/code/reFlex/ReFlex/app/src/main/res/drawable/reflex_icon.png"
+    },
+    {
         "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
         "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable/abc_ic_search_api_material.xml"
     },

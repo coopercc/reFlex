@@ -16,12 +16,12 @@
         "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
-        "source": "/Users/coopercain/.android/build-cache/2f69b46abd40c0687cf4acad064ba8a0b4bb5adb/output/res/layout/design_navigation_menu.xml"
-    },
-    {
         "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
         "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/coopercain/.android/build-cache/2f69b46abd40c0687cf4acad064ba8a0b4bb5adb/output/res/layout/design_navigation_menu.xml"
     },
     {
         "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
@@ -198,6 +198,10 @@
     {
         "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
         "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout/activity_schedule.xml",
+        "source": "/Users/coopercain/code/reFlex/ReFlex/app/src/main/res/layout/activity_schedule.xml"
     },
     {
         "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",

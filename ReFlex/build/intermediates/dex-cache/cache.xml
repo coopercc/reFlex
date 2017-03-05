@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
+        jar="/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a826e903e002d2f0493539a8beeba5d12cc5ffce">
+        <dex dex="/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_43f96081ce0bbd2845c27d4a759f8e6d006103cb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/coopercain/.android/build-cache/6f86614d4cb3dbca68d5da6dab2d1902156d2c29/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="30a4938ea5235ccf532b3e9f04200e68547e36ad">
         <dex dex="/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3ef8644ef048c4e7611250895e6130d63af36cba/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9efe1d62e0242f0e5828a8720c5cd5485e510b11">
-        <dex dex="/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_43f96081ce0bbd2845c27d4a759f8e6d006103cb/classes.dex" />
     </item>
     <item
         is-multidex="true"

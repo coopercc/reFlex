@@ -28,12 +28,12 @@
         "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png",
-        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
-    },
-    {
         "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
