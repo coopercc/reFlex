@@ -42,6 +42,8 @@ public class HomeActivity extends AppCompatActivity {
                             case R.id.schedule:
                                 Toast.makeText(HomeActivity.this, "Schedule", Toast.LENGTH_SHORT).show();
                                 // start new Activity/fragment
+                                Intent intent = new Intent(HomeActivity.this, Schedule.class);
+                                startActivity(intent);
                                 break;
                         }
                         return true;
