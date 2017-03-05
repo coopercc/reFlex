@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +38,10 @@ public class WorkoutListFragment extends Fragment {
         workoutList.add("Workout 1");
         workoutList.add("Workout 2");
         workoutList.add("Workout 3");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, workoutList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, workoutList);
         final ListView listView = (ListView) rootView.findViewById(R.id.workoutList);
         listView.setAdapter(adapter);
+        Log.i("WorkoutListFrag", "Adding list");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
