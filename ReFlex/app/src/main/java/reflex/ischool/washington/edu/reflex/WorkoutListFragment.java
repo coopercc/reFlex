@@ -31,13 +31,14 @@ public class WorkoutListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        final View rootView = inflater.inflate(R.layout.fragment_workout_list, container, false);
 
         List<String> workoutList = new ArrayList<String>();
         workoutList.add("Workout 1");
         workoutList.add("Workout 2");
         workoutList.add("Workout 3");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, workoutList);
-        final ListView listView = (ListView) getView().findViewById(R.id.workoutList);
+        final ListView listView = (ListView) rootView.findViewById(R.id.workoutList);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -55,7 +56,7 @@ public class WorkoutListFragment extends Fragment {
             }
         });
 
-        return inflater.inflate(R.layout.fragment_workout_list, container, false);
+        return rootView;
     }
 
 }
