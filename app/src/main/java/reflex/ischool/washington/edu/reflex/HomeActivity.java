@@ -8,7 +8,7 @@ import android.content.Intent;
 
 public class HomeActivity extends Activity {
 
-    Button goTo;
+    private Button goTo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,5 @@ public class HomeActivity extends Activity {
                 startActivity(intent);
             }
         });
-
     }
 }

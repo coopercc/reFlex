@@ -15,6 +15,7 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 import android.os.Build;
 import android.widget.Toast;
+import android.util.Log;
 
 public class Schedule extends Activity {
 
@@ -95,7 +96,10 @@ public class Schedule extends Activity {
         Intent notificationIntent = new Intent(this, AlarmReceiver.class);
         notificationIntent.putExtra(AlarmReceiver.NOTIFICATION_ID, 1);
         notificationIntent.putExtra(AlarmReceiver.NOTIFICATION, notification);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        ((MyApplication) this.getApplication()).incrRequestCode();
+        int requestCode = ((MyApplication) this.getApplication()).getRequestCode();
+        //Log.i("Schedule", "requestCode is " + requestCode);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, requestCode, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
