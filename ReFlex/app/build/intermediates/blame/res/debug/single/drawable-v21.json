@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
+        "source": "/Users/coopercain/.android/build-cache/2f69b46abd40c0687cf4acad064ba8a0b4bb5adb/output/res/drawable-v21/design_password_eye.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/Users/coopercain/.android/build-cache/2f69b46abd40c0687cf4acad064ba8a0b4bb5adb/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/Users/coopercain/.android/build-cache/2f69b46abd40c0687cf4acad064ba8a0b4bb5adb/output/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
+        "source": "/Users/coopercain/.android/build-cache/2f69b46abd40c0687cf4acad064ba8a0b4bb5adb/output/res/drawable-v21/avd_show_password.xml"
+    }
+]
