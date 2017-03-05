@@ -1,0 +1,7 @@
+#Sun Mar 05 11:38:48 PST 2017
+base.0=/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_cd4b3209297e588ba22a41b03bf931e7e019b793
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_43f96081ce0bbd2845c27d4a759f8e6d006103cb/classes.dex
+base.1=/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_43f96081ce0bbd2845c27d4a759f8e6d006103cb
+file.0=/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_cd4b3209297e588ba22a41b03bf931e7e019b793/classes.dex

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/coopercain/code/reFlex/ReFlex/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/coopercain/.android/build-cache/7d571ff5bcb981943f0c8265ecf3c070a633363b/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]
