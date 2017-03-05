@@ -1,6 +1,7 @@
 package reflex.ischool.washington.edu.reflex;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -37,6 +38,10 @@ public class HomeActivity extends AppCompatActivity {
                             case R.id.workout:
                                 Toast.makeText(HomeActivity.this, "Start", Toast.LENGTH_SHORT).show();
                                 // start new Activity/fragment
+                                WorkoutListFragment workoutList = new WorkoutListFragment();
+                                FragmentTransaction tx = getFragmentManager().beginTransaction();
+                                tx.replace(R.id.fragment_placeholder, workoutList);
+                                tx.commit();
                                 break;
                             case R.id.schedule:
                                 Toast.makeText(HomeActivity.this, "Schedule", Toast.LENGTH_SHORT).show();
