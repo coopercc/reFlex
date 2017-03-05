@@ -3,8 +3,9 @@
 
     <string name="hello">Hello world!</string>
 
+    <string name="home">Home</string>
     <string name="recent">Recents</string>
-    <string name="start">Start</string>
+    <string name="workout">Workout</string>
     <string name="schedule">Schedule</string>
 
     <!-- TODO: Remove or change this placeholder text -->

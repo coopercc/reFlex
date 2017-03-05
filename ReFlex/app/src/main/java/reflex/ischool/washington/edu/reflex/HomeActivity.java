@@ -1,6 +1,7 @@
 package reflex.ischool.washington.edu.reflex;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -26,11 +27,14 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.recent:
-                                Toast.makeText(HomeActivity.this, "Recent", Toast.LENGTH_SHORT).show();
+                            case R.id.home:
+                                Toast.makeText(HomeActivity.this, "Home", Toast.LENGTH_SHORT).show();
                                 // start new Activity/fragment
                                 break;
-                            case R.id.start:
+                            case R.id.recents:
+                                Toast.makeText(HomeActivity.this, "Recent", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.workout:
                                 Toast.makeText(HomeActivity.this, "Start", Toast.LENGTH_SHORT).show();
                                 // start new Activity/fragment
                                 break;
@@ -42,5 +46,6 @@ public class HomeActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
     }
 }
