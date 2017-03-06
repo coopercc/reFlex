@@ -36,7 +36,9 @@ public class WorkoutFragment extends Fragment {
         // Inflate the layout for this fragment
         //create view
 
-        recyclerView = (RecyclerView) getView().findViewById(R.id.workoutRecycleView);
+        final View rootView = inflater.inflate(R.layout.fragment_workout, container, false);
+
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.workoutRecycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         exerciseList = new ArrayList<Exercise>();
@@ -65,7 +67,7 @@ public class WorkoutFragment extends Fragment {
 
 
 
-        return inflater.inflate(R.layout.fragment_workout, container, false);
+        return rootView;
 
 
     }
