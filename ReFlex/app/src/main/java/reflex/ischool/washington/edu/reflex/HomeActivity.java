@@ -11,6 +11,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
+    
+    // Firebase instance variables
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
