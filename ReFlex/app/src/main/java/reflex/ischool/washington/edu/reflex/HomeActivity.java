@@ -46,8 +46,11 @@ public class HomeActivity extends AppCompatActivity {
                             case R.id.schedule:
                                 Toast.makeText(HomeActivity.this, "Schedule", Toast.LENGTH_SHORT).show();
                                 // start new Activity/fragment
-                                Intent intent = new Intent(HomeActivity.this, Schedule.class);
-                                startActivity(intent);
+                                ScheduleFragment schedfrag = new ScheduleFragment();
+                                FragmentTransaction tx2 = getFragmentManager().beginTransaction();
+                                tx2.replace(R.id.fragment_placeholder, schedfrag);
+                                tx2.commit();
+                                break;
                                 break;
                         }
                         return true;
