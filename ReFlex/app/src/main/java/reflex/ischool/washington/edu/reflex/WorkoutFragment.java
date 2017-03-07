@@ -152,6 +152,14 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //get data for all exercises in the list and post to firebase, then return to home page
+                Exercise exercise = new Exercise();
+                //Adding values
+//                Exercise.setName(name);
+//                person.setAddress(address);
+                for(Exercise e: exerciseList) {
+                    DatabaseReference newRef = mDatabase.child("Recent").push();
+                    newRef.setValue(e);
+                }
             }
         });
 
