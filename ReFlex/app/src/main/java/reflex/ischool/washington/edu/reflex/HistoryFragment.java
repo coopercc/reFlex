@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,7 +37,6 @@ public class HistoryFragment extends Fragment {
     private ListView view;
     private DatabaseReference dataRef;
     private ArrayList<Exercise> list = new ArrayList<>();
-    private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     // [START declare_database_ref]
     private DatabaseReference mDaabase;
@@ -58,14 +58,20 @@ public class HistoryFragment extends Fragment {
         Query q = dataRef;
         final View rootView = inflater.inflate(R.layout.fragment_recent, container, false);
         Log.i("WorkoutListFrag", "start reading recent");
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recent_list);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+//        final RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recent_list);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         //final ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, list);
         FirebaseListAdapter<Exercise> adapter = new FirebaseListAdapter<Exercise>(getActivity(), Exercise.class, R.layout.fragment_recent,q){
 
             @Override
-            protected void populateView(View v, Exercise model, int position) {
+            protected void populateView(View v, Exercise exercise, int position) {
+                TextView text1=(TextView)v.findViewById(R.id.text1);
+                TextView text2=(TextView)v.findViewById(R.id.text2);
+                TextView text3=(TextView)v.findViewById(R.id.text3);
+                text1.setText(exercise.getSets());
+                text2.setText(exercise.getName());
+                text3.setText(exercise.getReps());
 
             }
         };
@@ -100,7 +106,7 @@ public class HistoryFragment extends Fragment {
 //            }
 //        });
 //        adapter = new workoutAdapter(list, this.getActivity());
-        recyclerView.setAdapter(adapter);
+        view.setAdapter(adapter);
         return rootView;
     }
 }
