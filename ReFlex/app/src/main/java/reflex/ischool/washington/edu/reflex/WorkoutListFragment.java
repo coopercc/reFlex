@@ -2,6 +2,7 @@ package reflex.ischool.washington.edu.reflex;
 
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,7 @@ import java.util.List;
  */
 public class WorkoutListFragment extends Fragment {
     private DatabaseReference mDatabase;
+    private Context context;
 
     public WorkoutListFragment() {
         // Required empty public constructor
@@ -44,47 +46,50 @@ public class WorkoutListFragment extends Fragment {
 
         //get all workout names
 
-// ...
+
+        context = getActivity().getApplicationContext();
+
+        final List<String> workoutList = new ArrayList<String>();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data: dataSnapshot.getChildren()) {
                     if (data.getKey().equals("workoutStat")) {
-                        Log.i("WorkoutListFrag", data.toString());
+                        Log.i("WorkoutListFrag", data.getValue().toString());
+                        for(DataSnapshot workouts: data.getChildren()) {
+                            Log.i("WorkoutListFrag", workouts.getKey());
+                            workoutList.add(workouts.getKey());
+                            Log.i("WorkoutListFrag", workoutList.toString());
+                        }
                     }
                     //Object value = data.child().getValue();
-                    Log.i("WorkoutListFrag", data.toString());
+
                 }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, workoutList);
+                final ListView listView = (ListView) rootView.findViewById(R.id.workoutList);
+                listView.setAdapter(adapter);
+                Log.i("WorkoutListFrag", "Adding list");
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        //change to workoutFragment
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("WorkoutPosition", workoutList.get(position));
+                        WorkoutFragment workoutFrag = new WorkoutFragment();
+                        workoutFrag.setArguments(bundle);
+                        FragmentTransaction tx = getFragmentManager().beginTransaction();
+                        tx.replace(R.id.fragment_placeholder, workoutFrag);
+                        tx.commit();
+
+                    }
+                });
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-        List<String> workoutList = new ArrayList<String>();
-        workoutList.add("Workout 1");
-        workoutList.add("Workout 2");
-        workoutList.add("Workout 3");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, workoutList);
-        final ListView listView = (ListView) rootView.findViewById(R.id.workoutList);
-        listView.setAdapter(adapter);
-        Log.i("WorkoutListFrag", "Adding list");
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //change to workoutFragment
-
-                Bundle bundle = new Bundle();
-                bundle.putInt("WorkoutPosition", position);
-                WorkoutFragment workoutFrag = new WorkoutFragment();
-                workoutFrag.setArguments(bundle);
-                FragmentTransaction tx = getFragmentManager().beginTransaction();
-                tx.replace(R.id.fragment_placeholder, workoutFrag);
-                tx.commit();
 
             }
         });

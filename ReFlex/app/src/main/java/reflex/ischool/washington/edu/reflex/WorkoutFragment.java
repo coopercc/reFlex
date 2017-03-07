@@ -1,6 +1,7 @@
 package reflex.ischool.washington.edu.reflex;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.CountDownTimer;
@@ -12,6 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +39,7 @@ public class WorkoutFragment extends Fragment {
     private TextView timeLeft;
     private boolean isPaused;
     private long secondsLeft;
+    private DatabaseReference mDatabase;
 
     public WorkoutFragment() {
         // Required empty public constructor
@@ -50,28 +58,53 @@ public class WorkoutFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         exerciseList = new ArrayList<Exercise>();
         secondsLeft = 90;
-
-
-        for (int i = 0; i < 3; i++) {
-            Exercise temp = new Exercise();
-            if (i == 0) {
-                temp.setName("Pushups");
-                temp.setSets(3);
-                temp.setReps(12);
-            } else if (i == 1) {
-                temp.setName("Situps");
-                temp.setSets(3);
-                temp.setReps(12);
-            } else {
-                temp.setName("Pullups");
-                temp.setSets(4);
-                temp.setReps(6);
-            }
-            exerciseList.add(temp);
+        String workoutName = "";
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            workoutName = bundle.getString("WorkoutPosition");
         }
+        final String workout = workoutName;
+        Log.i("WorkoutFrag", workout);
 
-        adapter = new workoutAdapter(exerciseList, this.getActivity());
-        recyclerView.setAdapter(adapter);
+        final Activity a = this.getActivity();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data: dataSnapshot.getChildren()) {
+                    if (data.getKey().equals("workoutStat")) {
+                        for (DataSnapshot workouts : data.getChildren()) {
+                            if (workouts.getKey().equals(workout)) {
+                                for (DataSnapshot exercise : workouts.getChildren()) {
+                                    Exercise e = new Exercise();
+                                    e.setName(exercise.getKey());
+                                    Log.i("WorkoutFrag", exercise.getKey());
+                                    for (DataSnapshot numbs : exercise.getChildren()) {
+                                        if (numbs.getKey().equals("Sets")) {
+                                            e.setSets(Integer.parseInt(numbs.getValue().toString()));
+                                        } else {
+                                            e.setReps(Integer.parseInt(numbs.getValue().toString()));
+                                        }
+                                    }
+                                    Log.i("WorkoutFrag", e.toString());
+                                    exerciseList.add(e);
+                                }
+
+                            }
+                        }
+                    }
+                }
+                adapter = new workoutAdapter(exerciseList, a);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         timeLeft = (TextView) rootView.findViewById(R.id.timeLeft);
 
