@@ -64,14 +64,13 @@
                 android:id="@+id/cardItemReps"
                 android:layout_width="50sp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="1"
-
-                android:inputType="number"
-                android:textAlignment="center"
                 android:layout_below="@+id/cardItemTitle"
+
+                android:layout_marginStart="14dp"
                 android:layout_toEndOf="@+id/textView"
-                android:layout_marginStart="14dp" />
+                android:ems="10"
+                android:inputType="number"
+                android:textAlignment="center" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"

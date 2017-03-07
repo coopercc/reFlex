@@ -85,7 +85,13 @@ public class workoutAdapter extends RecyclerView.Adapter<workoutAdapter.ViewHold
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int data = Integer.parseInt(s.toString().trim());
+                int data;
+                if (s.length() == 0) {
+                    data = 0;
+                } else {
+                    data = Integer.parseInt(s.toString().trim());
+                }
+
                 e.setReps(data);
             }
 
