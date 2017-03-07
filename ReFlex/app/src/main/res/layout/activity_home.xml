@@ -11,7 +11,6 @@
         android:id="@+id/fragment_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello world"
         android:layout_alignEnd="@+id/bottom_navigation">
 
     </FrameLayout>
