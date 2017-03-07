@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WorkoutActivity"></activity>
         <activity android:name=".Schedule"></activity>
         <receiver android:name=".AlarmReceiver" android:process=":remote">
             <intent-filter>
