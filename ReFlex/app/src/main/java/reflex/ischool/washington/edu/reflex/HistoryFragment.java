@@ -52,26 +52,22 @@ public class HistoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Intent launchingIntent = Intent.getIntent();
-        Bundle b = launchingIntent.getExtras();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dataRef = database.getReference("workoutStat/Recent");
         Query q = dataRef;
-        //dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/workoutStat/Recent");
         final View rootView = inflater.inflate(R.layout.fragment_recent, container, false);
-
+        Log.i("WorkoutListFrag", "start reading recent");
         view = (ListView) rootView.findViewById(R.id.recent_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        //ArrayAdapter<Exercise> adapter =new ArrayAdapter<Exercise>(getActivity(),Exercise.class,R.layout.simple_list_item_1,q) {
         final ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, list);
         view.setAdapter(adapter);
-        // [START initialize_database_ref]
-        //dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/");
         dataRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Log.i("WorkoutListFrag", "reading recent");
                 list.add(dataSnapshot.getValue(Exercise.class));
+                System.out.println(dataSnapshot.getValue(Exercise.class));
                 adapter.notifyDataSetChanged();
             }
 
