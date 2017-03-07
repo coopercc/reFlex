@@ -40,7 +40,7 @@ public class WorkoutHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         view = (ListView) findViewById(R.id.act_hist);
-        ArrayAdapter<exercise> adapter = new ArrayAdapter<excersie>(this, android.R.layout.activity_history, list);
+        ArrayAdapter<Exercise> adapter = new ArrayAdapter<excersie>(this, android.R.layout.activity_history, list);
         view.setAdapter(adapter);
         // [START initialize_database_ref]
         dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/");

@@ -36,7 +36,11 @@ public class WorkoutFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //create view
-        dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/workoutStat");
+        Intent launchingIntent = getIntent();
+        Bundle b = launchingIntent.getExtras();
+        topic = b.getString("workout");
+        dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/workoutStat/" + b);
+
         recyclerView = (RecyclerView) getView().findViewById(R.id.workoutRecycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
@@ -45,17 +49,21 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //Read each child of the user
-                for(DataSnapshot child : dataSnapshot.getChildren()) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
 
-                //Add the new posts from the database to the List that is connected to an adapter and later on a ListView.
-                Exercise exercise = child.getValue();
-                exerciseList.add(exercise);
+                    //Add the new posts from the database to the List that is connected to an adapter and later on a ListView.
+                    Exercise exercise = new Exercise();
+                    exercise.setName(child.getKey());
+                    exercise.setSets(child.Sets);
+                    exercise.setReps(child.Reps);
+                    exerciseList.add(exercise);
 
-                // We need notify the adapter that the data have been changed
-                adapter.notifyDataSetChanged();
+                    // We need notify the adapter that the data have been changed
+                    adapter.notifyDataSetChanged();
 
-                // Call onLoadMoreComplete when the LoadMore task, has finished
-                //mListView.onRefreshComplete();
+                    // Call onLoadMoreComplete when the LoadMore task, has finished
+                    //mListView.onRefreshComplete();
+                }
             }
 
             @Override
@@ -63,7 +71,6 @@ public class WorkoutFragment extends Fragment {
 
             }
         });
-        }
 
 //        for (int i = 0; i < 3; i++) {
 //            Exercise temp = new Exercise();
