@@ -1,6 +1,7 @@
 package reflex.ischool.washington.edu.reflex;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.CountDownTimer;
@@ -12,6 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,7 +46,11 @@ public class WorkoutFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //create view
-
+        Intent launchingIntent = Intent.getIntent();
+        Bundle b = launchingIntent.getExtras();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference dataRef = database.getReference("workoutStat/" + b);
+        //dataRef = new FirebaseDatabase("https://reflex-c4b55.firebaseio.com/workoutStat/" + b);
         final View rootView = inflater.inflate(R.layout.fragment_workout, container, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.workoutRecycleView);
@@ -52,23 +60,32 @@ public class WorkoutFragment extends Fragment {
         secondsLeft = 90;
 
 
-        for (int i = 0; i < 3; i++) {
-            Exercise temp = new Exercise();
-            if (i == 0) {
-                temp.setName("Pushups");
-                temp.setSets(3);
-                temp.setReps(12);
-            } else if (i == 1) {
-                temp.setName("Situps");
-                temp.setSets(3);
-                temp.setReps(12);
-            } else {
-                temp.setName("Pullups");
-                temp.setSets(4);
-                temp.setReps(6);
+        dataRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Read each child of the user
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+                    //Add the new posts from the database to the List that is connected to an adapter and later on a ListView.
+                    Exercise exercise = new Exercise();
+                    exercise.setName(child.getKey());
+                    exercise.setSets(child.Sets);
+                    exercise.setReps(child.Reps);
+                    exerciseList.add(exercise);
+
+                    // We need notify the adapter that the data have been changed
+                    adapter.notifyDataSetChanged();
+
+                    // Call onLoadMoreComplete when the LoadMore task, has finished
+                    //mListView.onRefreshComplete();
+                }
             }
-            exerciseList.add(temp);
-        }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         adapter = new workoutAdapter(exerciseList, this.getActivity());
         recyclerView.setAdapter(adapter);
