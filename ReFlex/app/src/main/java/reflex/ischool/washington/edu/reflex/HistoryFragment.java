@@ -1,6 +1,7 @@
 package reflex.ischool.washington.edu.reflex;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,16 +19,14 @@ import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-//import com.google.firebase.quickstart.database.models.Post;
-//import com.google.firebase.quickstart.database.models.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
 /**
  * Created by apple on 3/6/17.
  */
@@ -53,17 +52,19 @@ public class HistoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Intent launchingIntent = getIntent();
+        Intent launchingIntent = Intent.getIntent();
         Bundle b = launchingIntent.getExtras();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dataRef = database.getReference("workoutStat/Recent");
+        Query q = dataRef;
         //dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/workoutStat/Recent");
         final View rootView = inflater.inflate(R.layout.fragment_recent, container, false);
 
         view = (ListView) rootView.findViewById(R.id.recent_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        final ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(this, android.R.layout.fragment_recent, list);
+        //ArrayAdapter<Exercise> adapter =new ArrayAdapter<Exercise>(getActivity(),Exercise.class,R.layout.simple_list_item_1,q) {
+        final ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, list);
         view.setAdapter(adapter);
         // [START initialize_database_ref]
         //dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/");
