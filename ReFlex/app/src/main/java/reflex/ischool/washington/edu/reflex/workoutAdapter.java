@@ -42,13 +42,13 @@ public class workoutAdapter extends RecyclerView.Adapter<workoutAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(final workoutAdapter.ViewHolder holder, int position) {
-        Exercise e = listItems.get(position);
+        final Exercise e = listItems.get(position);
 
         holder.title.setText(e.getName());
 
         holder.reps.setText(e.getReps()+"", TextView.BufferType.EDITABLE);
 
-        String[] items = new String[]{"1","2","3","4","5"};
+        final String[] items = new String[]{"1","2","3","4","5"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, items);
         holder.sets.setAdapter(adapter);
 
@@ -68,10 +68,29 @@ public class workoutAdapter extends RecyclerView.Adapter<workoutAdapter.ViewHold
                         holder.setBoxes.get(i).setVisibility(View.INVISIBLE);
                     }
                 }
+                e.setSets(Integer.parseInt(items[position]));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        holder.reps.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int data = Integer.parseInt(s.toString().trim());
+                e.setReps(data);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });
