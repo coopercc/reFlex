@@ -13,6 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +27,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class WorkoutListFragment extends Fragment {
-
+    private DatabaseReference mDatabase;
 
     public WorkoutListFragment() {
         // Required empty public constructor
@@ -33,6 +39,23 @@ public class WorkoutListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_workout_list, container, false);
+
+        //get all workout names
+
+// ...
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("WorkoutListFrag", dataSnapshot.getValue(String.class));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         List<String> workoutList = new ArrayList<String>();
         workoutList.add("Workout 1");
