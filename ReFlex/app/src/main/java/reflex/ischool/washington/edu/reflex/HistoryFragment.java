@@ -39,7 +39,7 @@ public class HistoryFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     // [START declare_database_ref]
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDaabase;
     // [END declare_database_ref]
 
     private EditText mTitleField;
