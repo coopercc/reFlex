@@ -110,7 +110,7 @@ public class Schedule extends Activity {
         builder.setContentTitle("Scheduled Notification");
         builder.setContentText(content);
         builder.setSmallIcon(R.drawable.reflex_icon);
-        builder.setVibrate(new long[] {1000, 1000});
+        builder.setVibrate(new long[] {1000, 1000, 1000, 1000, 1000});
         return builder.build();
     }
 }
