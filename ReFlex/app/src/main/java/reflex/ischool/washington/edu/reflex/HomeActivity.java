@@ -51,7 +51,6 @@ public class HomeActivity extends AppCompatActivity {
                                 tx2.replace(R.id.fragment_placeholder, schedfrag);
                                 tx2.commit();
                                 break;
-                                break;
                         }
                         return true;
                     }
