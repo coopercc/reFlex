@@ -87,10 +87,8 @@ public class WorkoutFragment extends Fragment {
                                             e.setReps(Integer.parseInt(numbs.getValue().toString()));
                                         }
                                     }
-                                    Log.i("WorkoutFrag", e.toString());
                                     exerciseList.add(e);
                                 }
-
                             }
                         }
                     }
@@ -151,7 +149,9 @@ public class WorkoutFragment extends Fragment {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //get data for all exercises in the list and post to firebase, then return to home page
+                //get data for all exercises in the list and post to firebase with date, then return to home page
+                //get user, if exists, add date, add exercise names and under that, sets and reps
+
             }
         });
 

@@ -8,7 +8,6 @@ public class Exercise {
 
     private String name;
     private int sets, reps;
-    private boolean isCompleted;
 
     public void Exercise() {}
 
@@ -36,11 +35,4 @@ public class Exercise {
         return reps;
     }
 
-    public boolean isCompleted() {
-        return isCompleted;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.isCompleted = completed;
-    }
 }
