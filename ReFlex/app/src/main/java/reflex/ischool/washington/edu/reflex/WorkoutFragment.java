@@ -52,7 +52,7 @@ public class WorkoutFragment extends Fragment {
         secondsLeft = 90;
 
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             Exercise temp = new Exercise();
             if (i == 0) {
                 temp.setName("Pushups");
@@ -62,7 +62,11 @@ public class WorkoutFragment extends Fragment {
                 temp.setName("Situps");
                 temp.setSets(3);
                 temp.setReps(12);
-            } else {
+            } else if (i == 2) {
+                temp.setName("Exercise");
+                temp.setReps(12);
+                temp.setSets(3);
+            }else {
                 temp.setName("Pullups");
                 temp.setSets(4);
                 temp.setReps(6);
@@ -114,11 +118,19 @@ public class WorkoutFragment extends Fragment {
         });
 
 
+        Button finish = (Button) rootView.findViewById(R.id.finish);
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get data for all exercises in the list and post to firebase, then return to home page
+            }
+        });
 
         return rootView;
 
 
     }
+
 
     private CountDownTimer resumeCountDown(long secondsLeft) {
         return new CountDownTimer(secondsLeft, 1000) {

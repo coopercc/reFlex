@@ -1,9 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     tools:context="reflex.ischool.washington.edu.reflex.WorkoutFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +31,8 @@
         android:layout_below="@+id/linearLayout3"
         android:layout_alignParentStart="true"
         android:layout_marginTop="16dp"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:id="@+id/linearLayout2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -62,10 +68,34 @@
                 android:text="Reset" />
         </RelativeLayout>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="75dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="FINISH" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
 
     <!-- TODO: Update blank fragment layout -->
 
 
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</ScrollView>
