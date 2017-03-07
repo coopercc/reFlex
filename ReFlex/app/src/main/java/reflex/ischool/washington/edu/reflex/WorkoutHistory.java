@@ -26,9 +26,7 @@ import java.util.Map;
 public class WorkoutHistory extends AppCompatActivity {
     private ListView view;
     private DatabaseReference dataRef;
-    private ArrayList<Exercise> list = new ArrayList<>();
-    private static final String TAG = "NewPostActivity";
-    private static final String REQUIRED = "Required";
+    private ArrayList<exercise> list = new ArrayList<>();
 
     // [START declare_database_ref]
     private DatabaseReference mDatabase;
@@ -42,7 +40,7 @@ public class WorkoutHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         view = (ListView) findViewById(R.id.act_hist);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.activity_history, list);
+        ArrayAdapter<exercise> adapter = new ArrayAdapter<excersie>(this, android.R.layout.activity_history, list);
         view.setAdapter(adapter);
         // [START initialize_database_ref]
         dataRef = new Firebase("https://reflex-c4b55.firebaseio.com/");
