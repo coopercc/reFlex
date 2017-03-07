@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "362524750263",
+    "firebase_url": "https://reflex-c4b55.firebaseio.com",
+    "project_id": "reflex-c4b55",
+    "storage_bucket": "reflex-c4b55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362524750263:android:441065169c3b2beb",
+        "android_client_info": {
+          "package_name": "edu.washington.reflex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362524750263-0a9ssfe1kj8ua6j90ofo35ad48e34efr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP9er0j0ZSJWLCgq_pYCNJ6UgGI5A3kHM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362524750263:android:c6c973707f3023fb",
+        "android_client_info": {
+          "package_name": "reflex.ischool.washington.edu.reflex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362524750263-gbmucu06jsjri4cf7qfbovekilsqpqi2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "reflex.ischool.washington.edu.reflex",
+            "certificate_hash": "e166983759aff235afa6c846a95754c5f81e0c45"
+          }
+        },
+        {
+          "client_id": "362524750263-0a9ssfe1kj8ua6j90ofo35ad48e34efr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP9er0j0ZSJWLCgq_pYCNJ6UgGI5A3kHM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362524750263-0a9ssfe1kj8ua6j90ofo35ad48e34efr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
