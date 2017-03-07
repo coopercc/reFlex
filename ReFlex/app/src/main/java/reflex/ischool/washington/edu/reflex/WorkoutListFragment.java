@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +49,13 @@ public class WorkoutListFragment extends Fragment {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.i("WorkoutListFrag", dataSnapshot.getValue(String.class));
+                for (DataSnapshot data: dataSnapshot.getChildren()) {
+                    if (data.getKey().equals("workoutStat")) {
+                        Log.i("WorkoutListFrag", data.toString());
+                    }
+                    //Object value = data.child().getValue();
+                    Log.i("WorkoutListFrag", data.toString());
+                }
             }
 
             @Override
