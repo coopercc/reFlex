@@ -57,7 +57,7 @@ public class HistoryFragment extends Fragment {
         Query q = dataRef;
         final View rootView = inflater.inflate(R.layout.fragment_recent, container, false);
         Log.i("WorkoutListFrag", "start reading recent");
-        view = (ListView) rootView.findViewById(R.id.recent_list);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recent_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         final ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, list);
