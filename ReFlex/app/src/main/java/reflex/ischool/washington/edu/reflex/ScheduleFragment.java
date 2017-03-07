@@ -123,6 +123,7 @@ public class ScheduleFragment extends Fragment {
         builder.setContentText(content);
         builder.setSmallIcon(R.drawable.reflex_icon);
         builder.setVibrate(new long[] {1000, 1000, 1000, 1000, 1000});
+        builder.setPriority(Notification.PRIORITY_HIGH);
         return builder.build();
     }
 
