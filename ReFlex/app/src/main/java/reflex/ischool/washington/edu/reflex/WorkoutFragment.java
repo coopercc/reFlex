@@ -1,6 +1,8 @@
 package reflex.ischool.washington.edu.reflex;
 
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -40,6 +42,8 @@ public class WorkoutFragment extends Fragment {
     private boolean isPaused;
     private long secondsLeft;
     private DatabaseReference mDatabase;
+    private String workout;
+    private boolean hasInitiated;
 
     public WorkoutFragment() {
         // Required empty public constructor
@@ -58,12 +62,11 @@ public class WorkoutFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         exerciseList = new ArrayList<Exercise>();
         secondsLeft = 90;
-        String workoutName = "";
+        workout = "";
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            workoutName = bundle.getString("WorkoutPosition");
+            workout = bundle.getString("WorkoutPosition");
         }
-        final String workout = workoutName;
         Log.i("WorkoutFrag", workout);
 
         final Activity a = this.getActivity();
@@ -72,28 +75,9 @@ public class WorkoutFragment extends Fragment {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data: dataSnapshot.getChildren()) {
-                    if (data.getKey().equals("workoutStat")) {
-                        for (DataSnapshot workouts : data.getChildren()) {
-                            if (workouts.getKey().equals(workout)) {
-                                for (DataSnapshot exercise : workouts.getChildren()) {
-                                    Exercise e = new Exercise();
-                                    e.setName(exercise.getKey());
-                                    Log.i("WorkoutFrag", exercise.getKey());
-                                    for (DataSnapshot numbs : exercise.getChildren()) {
-                                        if (numbs.getKey().equals("Sets")) {
-                                            e.setSets(Integer.parseInt(numbs.getValue().toString()));
-                                        } else {
-                                            e.setReps(Integer.parseInt(numbs.getValue().toString()));
-                                        }
-                                    }
-                                    Log.i("WorkoutFrag", e.toString());
-                                    exerciseList.add(e);
-                                }
-
-                            }
-                        }
-                    }
+                if (!hasInitiated) {
+                    setStuff(dataSnapshot);
+                    hasInitiated=true;
                 }
                 adapter = new workoutAdapter(exerciseList, a);
                 recyclerView.setAdapter(adapter);
@@ -152,10 +136,6 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //get data for all exercises in the list and post to firebase, then return to home page
-                Exercise exercise = new Exercise();
-                //Adding values
-//                Exercise.setName(name);
-//                person.setAddress(address);
                 for(Exercise e: exerciseList) {
                     DatabaseReference newRef = mDatabase.child("Recent").push();
                     newRef.setValue(e);
@@ -188,4 +168,31 @@ public class WorkoutFragment extends Fragment {
         this.secondsLeft = secondsLeft;
     }
 
+
+    private void setStuff(DataSnapshot dataSnapshot) {
+        for (DataSnapshot data: dataSnapshot.getChildren()) {
+            if (data.getKey().equals("workoutStat")) {
+                for (DataSnapshot workouts : data.getChildren()) {
+                    if (workouts.getKey().equals(workout)) {
+                        for (DataSnapshot exercise : workouts.getChildren()) {
+                            Exercise e = new Exercise();
+                            e.setName(exercise.getKey());
+                            Log.i("WorkoutFrag", exercise.getKey());
+                            for (DataSnapshot numbs : exercise.getChildren()) {
+                                if (numbs.getKey().equals("Sets")) {
+                                    e.setSets(Integer.parseInt(numbs.getValue().toString()));
+                                } else {
+                                    e.setReps(Integer.parseInt(numbs.getValue().toString()));
+                                }
+                            }
+                            exerciseList.add(e);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
+
+

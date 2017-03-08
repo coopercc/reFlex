@@ -1,11 +1,16 @@
 package reflex.ischool.washington.edu.reflex;
 
 
+import android.app.Application;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 /**
@@ -53,6 +58,8 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -62,6 +69,18 @@ public class HomeFragment extends Fragment {
         // grab exercises from firebase to compare and show progress to user
         // do some algebra
         // display user their improvement/progress
+
+        Button btn = (Button) v.findViewById(R.id.usernameBtn);
+        final EditText usr = (EditText) v.findViewById(R.id.userName);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyApplication app = (MyApplication) getActivity().getApplication();
+                app.setUserName(usr.getText().toString());
+                Toast.makeText(getActivity(), "Saved Username as: " + usr.getText().toString(), Toast.LENGTH_SHORT).show();
+                Log.i("HomeFrag", app.getUserName());
+            }
+        });
         return v;
     }
 

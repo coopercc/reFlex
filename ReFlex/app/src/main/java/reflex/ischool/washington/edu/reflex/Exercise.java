@@ -9,7 +9,8 @@ public class Exercise {
     private String name;
     private int sets, reps;
 
-    public void Exercise() {}
+    public void Exercise() {
+    }
 
     public void setName(String name) {
         this.name = name;
