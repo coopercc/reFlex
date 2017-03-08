@@ -102,12 +102,6 @@ public class HistoryFragment extends Fragment {
             @Override
             protected void populateView(View v, Exercise exercise, int position) {
 
-                TextView text1=(TextView)v.findViewById(R.id.text1);
-                TextView text2=(TextView)v.findViewById(R.id.text2);
-                TextView text3=(TextView)v.findViewById(R.id.text3);
-                text1.setText(exercise.getSets());
-                text2.setText(exercise.getName());
-                text3.setText(exercise.getReps());
 
                 Log.d("HistoryFragment", "populateView was called.");
             }

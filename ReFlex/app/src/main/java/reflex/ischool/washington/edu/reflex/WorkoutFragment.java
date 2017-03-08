@@ -143,10 +143,15 @@ public class WorkoutFragment extends Fragment {
                 Calendar calendar = Calendar.getInstance();
                 java.util.Date now = calendar.getTime();
                 java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+                int index = 1;
+                MyApplication app = (MyApplication) getActivity().getApplication();
+                String username = app.getUserName();
                 for(Exercise e: exerciseList) {
                     e.setTime(currentTimestamp);
-                    DatabaseReference newRef = mDatabase.child("Recent").push();
+                    DatabaseReference newRef = mDatabase.child("Recent/" + username + "/" +
+                            currentTimestamp.getTime() + "::" +  index);
                     newRef.setValue(e);
+                    index = index + 1;
                 }
             }
         });
