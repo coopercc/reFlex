@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 /**
@@ -76,6 +77,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 MyApplication app = (MyApplication) getActivity().getApplication();
                 app.setUserName(usr.getText().toString());
+                Toast.makeText(getActivity(), "Saved Username as: " + usr.getText().toString(), Toast.LENGTH_SHORT).show();
                 Log.i("HomeFrag", app.getUserName());
             }
         });
