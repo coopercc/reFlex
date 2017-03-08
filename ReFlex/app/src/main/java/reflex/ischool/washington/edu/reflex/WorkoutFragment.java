@@ -153,10 +153,6 @@ public class WorkoutFragment extends Fragment {
             public void onClick(View v) {
                 //get data for all exercises in the list and post to firebase with date, then return to home page
                 //get user, if exists, add date, add exercise names and under that, sets and reps
-                Account account = getAccount(AccountManager.get(getActivity()));
-
-                //String accountName = account.name;
-                Log.i("Workout Frag", account.toString());
             }
         });
 
@@ -179,17 +175,6 @@ public class WorkoutFragment extends Fragment {
             }
 
         };
-    }
-
-    private static Account getAccount(AccountManager accountManager) {
-        Account[] accounts = accountManager.getAccountsByType("com.google");
-        Account account;
-        if (accounts.length > 0) {
-            account = accounts[0];
-        } else {
-            account = null;
-        }
-        return account;
     }
 
     private void setSecondsLeft(long secondsLeft) {
