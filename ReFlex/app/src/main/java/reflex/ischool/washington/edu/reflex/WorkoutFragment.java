@@ -147,7 +147,7 @@ public class WorkoutFragment extends Fragment {
                 MyApplication app = (MyApplication) getActivity().getApplication();
                 String username = app.getUserName();
                 for(Exercise e: exerciseList) {
-                    e.setTime(currentTimestamp);
+                    //e.setTime(currentTimestamp);
                     DatabaseReference newRef = mDatabase.child("Recent/" + username + "/" +
                             currentTimestamp.getTime() + "::" +  index);
                     newRef.setValue(e);

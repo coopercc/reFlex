@@ -11,7 +11,6 @@ public class Exercise {
 
     private String name;
     private int sets, reps;
-    private Timestamp timestamp;
 
 
     public void Exercise() {
@@ -41,8 +40,5 @@ public class Exercise {
         return reps;
     }
 
-    public void setTime(Timestamp timestamp){this.timestamp = timestamp;}
-
-    public Timestamp getTimestamp(){return timestamp;}
 }
 
