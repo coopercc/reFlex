@@ -2,6 +2,7 @@ package reflex.ischool.washington.edu.reflex;
 
 
 import android.app.Application;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -10,7 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -27,6 +31,8 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private View rootView;
 
 
     public HomeFragment() {
@@ -65,13 +71,21 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
         // grab exercises from firebase to compare and show progress to user
         // do some algebra
         // display user their improvement/progress
 
-        Button btn = (Button) v.findViewById(R.id.usernameBtn);
-        final EditText usr = (EditText) v.findViewById(R.id.userName);
+        MyApplication app = (MyApplication) getActivity().getApplication();
+        TextView welcome = (TextView) rootView.findViewById(R.id.welcome);
+        if (app.getUserName().length() != 0) {
+            welcome.setText("Welcome " + app.getUserName() + "!");
+            welcome.setTextColor(Color.BLACK);
+            Log.d("HOMEFRAGMENT", app.getUserName());
+        }
+
+        Button btn = (Button) rootView.findViewById(R.id.usernameBtn);
+        final EditText usr = (EditText) rootView.findViewById(R.id.userName);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,9 +93,14 @@ public class HomeFragment extends Fragment {
                 app.setUserName(usr.getText().toString());
                 Toast.makeText(getActivity(), "Saved Username as: " + usr.getText().toString(), Toast.LENGTH_SHORT).show();
                 Log.i("HomeFrag", app.getUserName());
+                TextView welcome = (TextView) rootView.findViewById(R.id.welcome);
+                if (app.getUserName().length() != 0) {
+                    welcome.setText("Welcome " + app.getUserName() + "!");
+                    Log.d("HOMEFRAGMENT", app.getUserName());
+                }
             }
         });
-        return v;
+        return rootView;
     }
 
 }

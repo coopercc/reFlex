@@ -1,38 +1,22 @@
 package reflex.ischool.washington.edu.reflex;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -56,34 +40,6 @@ public class HistoryFragment extends Fragment {
         final String username = app.getUserName();
         final DatabaseReference dbRef = dataRef.child("Recent/"+username);
 
-//        dataRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-////                Query q = dataRef.child("Recent/"+username);
-////                FirebaseListAdapter<Exercise> adapter = new FirebaseListAdapter<Exercise>(getActivity(), Exercise.class, android.R.layout.simple_list_item_1, q) {
-////                    @Override
-////                    protected void populateView(View v, Exercise exercise, int position) {
-////
-////                        Log.d("HistoryFragment", "populateView was called." + exercise.getName());
-////                    }
-////                };
-////                ListView listView = (ListView) rootView.findViewById(R.id.recent_list);
-////                listView.setAdapter(adapter);
-//            }
-
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-
-
-
-//        final RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recent_list);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        //final ArrayAdapter<Exercise> adapter = new ArrayAdapter<Exercise>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, list);
         dbRef.addValueEventListener(new ValueEventListener() {
 
             @Override
