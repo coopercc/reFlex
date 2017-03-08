@@ -34,5 +34,4 @@ public class Exercise {
     public int getReps() {
         return reps;
     }
-
 }
