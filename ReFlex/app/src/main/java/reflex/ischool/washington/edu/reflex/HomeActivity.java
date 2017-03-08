@@ -42,28 +42,32 @@ public class HomeActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.home:
-                                Toast.makeText(HomeActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(HomeActivity.this, "Home", Toast.LENGTH_SHORT).show();
                                 HomeFragment homeFragment = new HomeFragment();
                                 FragmentTransaction tx = getFragmentManager().beginTransaction();
                                 tx.replace(R.id.fragment_placeholder, homeFragment);
                                 tx.commit();
                                 break;
                             case R.id.recents:
-                                Toast.makeText(HomeActivity.this, "Recent", Toast.LENGTH_SHORT).show();
-                                HistoryFragment historyFragment = new HistoryFragment();
-                                FragmentTransaction tx2 = getFragmentManager().beginTransaction();
-                                tx2.replace(R.id.fragment_placeholder, historyFragment);
-                                tx2.commit();
+                                if (app.getUserName() == "")
+                                    Toast.makeText(HomeActivity.this, "You must enter a user name to use this feature", Toast.LENGTH_LONG).show();
+                                else {
+                                    //Toast.makeText(HomeActivity.this, "Recent", Toast.LENGTH_SHORT).show();
+                                    HistoryFragment historyFragment = new HistoryFragment();
+                                    FragmentTransaction tx2 = getFragmentManager().beginTransaction();
+                                    tx2.replace(R.id.fragment_placeholder, historyFragment);
+                                    tx2.commit();
+                                }
                                 break;
                             case R.id.workout:
-                                Toast.makeText(HomeActivity.this, "Start", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(HomeActivity.this, "Start", Toast.LENGTH_SHORT).show();
                                 WorkoutListFragment workoutList = new WorkoutListFragment();
                                 FragmentTransaction tx3 = getFragmentManager().beginTransaction();
                                 tx3.replace(R.id.fragment_placeholder, workoutList);
                                 tx3.commit();
                                 break;
                             case R.id.schedule:
-                                Toast.makeText(HomeActivity.this, "Schedule", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(HomeActivity.this, "Schedule", Toast.LENGTH_SHORT).show();
                                 ScheduleFragment schedfrag = new ScheduleFragment();
                                 FragmentTransaction tx4 = getFragmentManager().beginTransaction();
                                 tx4.replace(R.id.fragment_placeholder, schedfrag);
