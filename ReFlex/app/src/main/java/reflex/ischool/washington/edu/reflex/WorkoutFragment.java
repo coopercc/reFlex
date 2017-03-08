@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Calendar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -154,6 +156,7 @@ public class WorkoutFragment extends Fragment {
                     newRef.setValue(e);
                     index = index + 1;
                 }
+                Toast.makeText(rootView.getContext(), "Your workout has been saved.", Toast.LENGTH_SHORT).show();
 
                 HistoryFragment historyFrag = new HistoryFragment();
                 FragmentTransaction tx = getFragmentManager().beginTransaction();
