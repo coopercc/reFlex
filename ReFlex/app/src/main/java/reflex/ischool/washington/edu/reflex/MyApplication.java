@@ -8,6 +8,7 @@ import android.app.Application;
 
 public class MyApplication extends Application {
     private int requestCode = 0;
+    private String userName = "";
 
     public int getRequestCode() {
         return requestCode;
@@ -16,5 +17,9 @@ public class MyApplication extends Application {
     public void incrRequestCode() {
         requestCode++;
     }
+
+    public void setUserName(String n) {userName = n;}
+
+    public String getUserName() {return userName;}
 
 }
