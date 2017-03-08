@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
+import java.util.Calendar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -135,8 +135,24 @@ public class WorkoutFragment extends Fragment {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //get data for all exercises in the list and post to firebase with date, then return to home page
-                //get user, if exists, add date, add exercise names and under that, sets and reps
+                //get data for all exercises in the list and post to firebase, then return to home page
+               // Exercise exercise = new Exercise();
+                //Adding values
+//                Exercise.setName(name);
+//                person.setAddress(address);
+                Calendar calendar = Calendar.getInstance();
+                java.util.Date now = calendar.getTime();
+                java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+                int index = 1;
+                MyApplication app = (MyApplication) getActivity().getApplication();
+                String username = app.getUserName();
+                for(Exercise e: exerciseList) {
+                    //e.setTime(currentTimestamp);
+                    DatabaseReference newRef = mDatabase.child("Recent/" + username + "/" +
+                            currentTimestamp.getTime() + "::" +  index);
+                    newRef.setValue(e);
+                    index = index + 1;
+                }
             }
         });
 
@@ -164,6 +180,7 @@ public class WorkoutFragment extends Fragment {
     private void setSecondsLeft(long secondsLeft) {
         this.secondsLeft = secondsLeft;
     }
+
 
     private void setStuff(DataSnapshot dataSnapshot) {
         for (DataSnapshot data: dataSnapshot.getChildren()) {

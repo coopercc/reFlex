@@ -1,5 +1,8 @@
 package reflex.ischool.washington.edu.reflex;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 /**
  * Created by coopercain on 3/1/17.
  */
@@ -9,7 +12,9 @@ public class Exercise {
     private String name;
     private int sets, reps;
 
-    public void Exercise() {}
+
+    public void Exercise() {
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -34,4 +39,6 @@ public class Exercise {
     public int getReps() {
         return reps;
     }
+
 }
+

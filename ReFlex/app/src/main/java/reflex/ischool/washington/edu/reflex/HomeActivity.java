@@ -16,8 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class HomeActivity extends AppCompatActivity {
     
     // Firebase instance variables
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseUser mFirebaseUser;
+    //private FirebaseAuth mFirebaseAuth;
+    //private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,10 @@ public class HomeActivity extends AppCompatActivity {
                                 break;
                             case R.id.recents:
                                 Toast.makeText(HomeActivity.this, "Recent", Toast.LENGTH_SHORT).show();
+                                HistoryFragment historyFragment = new HistoryFragment();
+                                FragmentTransaction tx2 = getFragmentManager().beginTransaction();
+                                tx2.replace(R.id.fragment_placeholder, historyFragment);
+                                tx2.commit();
                                 break;
                             case R.id.workout:
                                 Toast.makeText(HomeActivity.this, "Start", Toast.LENGTH_SHORT).show();

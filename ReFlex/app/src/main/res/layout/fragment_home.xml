@@ -11,6 +11,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter a username here"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
         <Button
             android:id="@+id/usernameBtn"
             android:layout_width="wrap_content"
@@ -18,19 +27,31 @@
             android:layout_below="@+id/userName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="17dp"
+            android:gravity="center"
             android:text="Set" />
 
         <EditText
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/textView2"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/black"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="username"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:text="Welcome!"
+            android:textColor="@color/black"
+            android:textSize="12pt"/>
     </RelativeLayout>
 
 </FrameLayout>

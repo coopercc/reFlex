@@ -1,0 +1,18 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context="reflex.ischool.washington.edu.reflex.HistoryFragment"
+    android:fillViewport="true"
+    android:paddingBottom="50dp">
+
+    <TableLayout
+        android:id="@+id/recent_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black">
+
+    </TableLayout>
+
+</ScrollView>
