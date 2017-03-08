@@ -36,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     public void setUpBottomNavigationView() {
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
+        final MyApplication app = (MyApplication) this.getApplication();
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
