@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
                                 break;
                             case R.id.recents:
                                 if (app.getUserName() == "")
-                                    Toast.makeText(HomeActivity.this, "You must enter a user name to use this feature", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(HomeActivity.this, "You must enter a username to use this feature", Toast.LENGTH_LONG).show();
                                 else {
                                     //Toast.makeText(HomeActivity.this, "Recent", Toast.LENGTH_SHORT).show();
                                     HistoryFragment historyFragment = new HistoryFragment();
