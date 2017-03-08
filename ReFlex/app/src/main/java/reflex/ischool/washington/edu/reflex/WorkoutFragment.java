@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
+import java.util.Calendar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -152,11 +152,15 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //get data for all exercises in the list and post to firebase, then return to home page
-                Exercise exercise = new Exercise();
+               // Exercise exercise = new Exercise();
                 //Adding values
 //                Exercise.setName(name);
 //                person.setAddress(address);
+                Calendar calendar = Calendar.getInstance();
+                java.util.Date now = calendar.getTime();
+                java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
                 for(Exercise e: exerciseList) {
+                    e.setTime(currentTimestamp);
                     DatabaseReference newRef = mDatabase.child("Recent").push();
                     newRef.setValue(e);
                 }

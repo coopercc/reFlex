@@ -1,5 +1,8 @@
 package reflex.ischool.washington.edu.reflex;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 /**
  * Created by coopercain on 3/1/17.
  */
@@ -9,6 +12,7 @@ public class Exercise {
     private String name;
     private int sets, reps;
     private boolean isCompleted;
+    private Timestamp timestamp;
 
     public void Exercise() {}
 
@@ -43,4 +47,8 @@ public class Exercise {
     public void setCompleted(boolean completed) {
         this.isCompleted = completed;
     }
+
+    public void setTime(Timestamp timestamp){this.timestamp = timestamp;}
+
+    public Timestamp getTimestamp(){return timestamp;}
 }

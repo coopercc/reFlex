@@ -55,42 +55,42 @@ public class HistoryFragment extends Fragment {
         Query q = dataRef;
         final View rootView = inflater.inflate(R.layout.fragment_recent, container, false);
         Log.i("HistoryFragment", "onCreateView called");
-
-        dataRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data: dataSnapshot.getChildren()) {
-                    if (data.getKey().equals("Recent")) {
-                        for (DataSnapshot example : data.getChildren()) {
-                            if (example.getKey().equals("test")) {
-                                Log.d("HistoryFragment", "the string is here: " + example.getValue());
-                                /*
-                                for (DataSnapshot exercise : workouts.getChildren()) {
-                                    Exercise e = new Exercise();
-                                    e.setName(exercise.getKey());
-                                    Log.i("WorkoutFrag", exercise.getKey());
-                                    for (DataSnapshot numbs : exercise.getChildren()) {
-                                        if (numbs.getKey().equals("Sets")) {
-                                            e.setSets(Integer.parseInt(numbs.getValue().toString()));
-                                        } else {
-                                            e.setReps(Integer.parseInt(numbs.getValue().toString()));
-                                        }
-                                    }
-                                    Log.i("WorkoutFrag", e.toString());
-                                    exerciseList.add(e);
-                                }
-                                */
-                            }
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//
+//        dataRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot data: dataSnapshot.getChildren()) {
+//                    if (data.getKey().equals("Recent")) {
+//                        for (DataSnapshot example : data.getChildren()) {
+//                            if (example.getKey().equals("test")) {
+//                                Log.d("HistoryFragment", "the string is here: " + example.getValue());
+//                                /*
+//                                for (DataSnapshot exercise : workouts.getChildren()) {
+//                                    Exercise e = new Exercise();
+//                                    e.setName(exercise.getKey());
+//                                    Log.i("WorkoutFrag", exercise.getKey());
+//                                    for (DataSnapshot numbs : exercise.getChildren()) {
+//                                        if (numbs.getKey().equals("Sets")) {
+//                                            e.setSets(Integer.parseInt(numbs.getValue().toString()));
+//                                        } else {
+//                                            e.setReps(Integer.parseInt(numbs.getValue().toString()));
+//                                        }
+//                                    }
+//                                    Log.i("WorkoutFrag", e.toString());
+//                                    exerciseList.add(e);
+//                                }
+//                                */
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
 
@@ -101,14 +101,14 @@ public class HistoryFragment extends Fragment {
         FirebaseListAdapter<Exercise> adapter = new FirebaseListAdapter<Exercise>(getActivity(), Exercise.class, android.R.layout.simple_list_item_1, q) {
             @Override
             protected void populateView(View v, Exercise exercise, int position) {
-                /*
+
                 TextView text1=(TextView)v.findViewById(R.id.text1);
                 TextView text2=(TextView)v.findViewById(R.id.text2);
                 TextView text3=(TextView)v.findViewById(R.id.text3);
                 text1.setText(exercise.getSets());
                 text2.setText(exercise.getName());
                 text3.setText(exercise.getReps());
-                */
+
                 Log.d("HistoryFragment", "populateView was called.");
             }
         };
