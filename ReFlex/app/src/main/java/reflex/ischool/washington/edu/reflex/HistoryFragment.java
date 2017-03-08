@@ -52,7 +52,7 @@ public class HistoryFragment extends Fragment {
                     String key = snapshot.getKey().substring(0, index);
                     long timestamp = Long.parseLong(key);
                     Date d = new Date(timestamp);
-                    final TextView textView = new TextView(getActivity());
+                    final TextView textView = new TextView(rootView.getContext());
                     String label = "On " + d.toString() + ", you did \n\t\t\t\t" + e.getReps() +
                             " reps and \n\t\t\t\t" + e.getSets() + " sets of " + e.getName() + ".";
                     textView.setText(label);
