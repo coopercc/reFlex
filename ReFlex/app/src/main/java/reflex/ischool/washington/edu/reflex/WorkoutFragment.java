@@ -4,6 +4,7 @@ package reflex.ischool.washington.edu.reflex;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.CountDownTimer;
@@ -153,6 +154,11 @@ public class WorkoutFragment extends Fragment {
                     newRef.setValue(e);
                     index = index + 1;
                 }
+
+                HistoryFragment historyFrag = new HistoryFragment();
+                FragmentTransaction tx = getFragmentManager().beginTransaction();
+                tx.replace(R.id.fragment_placeholder, historyFrag);
+                tx.commit();
             }
         });
 
