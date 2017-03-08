@@ -11,10 +11,11 @@ public class Exercise {
 
     private String name;
     private int sets, reps;
-    private boolean isCompleted;
     private Timestamp timestamp;
 
-    public void Exercise() {}
+
+    public void Exercise() {
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -40,15 +41,8 @@ public class Exercise {
         return reps;
     }
 
-    public boolean isCompleted() {
-        return isCompleted;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.isCompleted = completed;
-    }
-
     public void setTime(Timestamp timestamp){this.timestamp = timestamp;}
 
     public Timestamp getTimestamp(){return timestamp;}
 }
+
